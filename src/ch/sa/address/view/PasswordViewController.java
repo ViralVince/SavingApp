@@ -27,6 +27,9 @@ public class PasswordViewController {
 	@FXML
 	private Button newLoginButton;
 
+	@FXML
+	private Button editButton;
+
 	private MainApp mainApp;
 
 	public PasswordViewController() {
