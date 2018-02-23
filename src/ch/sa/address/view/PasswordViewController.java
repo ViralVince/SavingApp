@@ -37,7 +37,7 @@ public class PasswordViewController {
 	@FXML
     private void initialize() {
 		passwordField.setText("********");
-
+		//
     }
 
 	public void handleRevealPassword(){
