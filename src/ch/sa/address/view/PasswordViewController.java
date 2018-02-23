@@ -24,6 +24,9 @@ public class PasswordViewController {
 	@FXML
 	private Button EnlargeButton;
 
+	@FXML
+	private Button newLoginButton;
+
 	private MainApp mainApp;
 
 	public PasswordViewController() {
