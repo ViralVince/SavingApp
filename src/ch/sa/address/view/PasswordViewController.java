@@ -1,6 +1,8 @@
 package ch.sa.address.view;
 
 
+import java.io.IOException;
+
 import ch.sa.address.MainApp;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -67,7 +69,14 @@ public class PasswordViewController {
 	}
 	@FXML
 	public void openWebside(){
-
+		Runtime rt = Runtime.getRuntime();
+        String url = websideLink.getText();
+        try {
+			rt.exec("rundll32 url.dll,FileProtocolHandler " + url);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		}
 	}
 
