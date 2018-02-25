@@ -4,6 +4,7 @@ package ch.sa.address.view;
 import ch.sa.address.MainApp;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TextField;
 
@@ -13,7 +14,10 @@ public class PasswordViewController {
     private TableColumn<String ,String> loginColumn;
 
 	@FXML
-	private TextField passwordField;
+	private TextField passwordTextField;
+
+	@FXML
+	private TextField usernameTextField;
 
 	@FXML
 	private Button RevealButton;
@@ -30,6 +34,12 @@ public class PasswordViewController {
 	@FXML
 	private Button editButton;
 
+	@FXML
+	private Button deleteButton;
+
+	@FXML
+	private Hyperlink websideLink;
+
 	private MainApp mainApp;
 
 	public PasswordViewController() {
@@ -42,21 +52,23 @@ public class PasswordViewController {
 
 	@FXML
     private void initialize() {
-		passwordField.setText("********");
-		//
+		passwordTextField.setText("********");
+		websideLink.setText("youtube.com");
     }
 
 	public void handleRevealPassword(){
 		if(RevealButton.getText().equals("Reveal")){
-		passwordField.setText("Passwort");
+		passwordTextField.setText("Passwort");
 		RevealButton.setText("Hide");
 		} else {
-			passwordField.setText("********");
+			passwordTextField.setText("********");
 			RevealButton.setText("Reveal");
 		}
 	}
-	public void editScene(){
+	@FXML
+	public void openWebside(){
 
-    }
+		}
+	}
 
-}
+
