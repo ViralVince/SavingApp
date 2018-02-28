@@ -1,6 +1,9 @@
 package ch.sa.address.view;
 
 
+import java.awt.Toolkit;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.StringSelection;
 import java.io.IOException;
 
 import ch.sa.address.MainApp;
@@ -46,11 +49,7 @@ public class PasswordViewController {
 
 	public PasswordViewController() {
     }
-	@FXML
-	public void setupPasswordViewScene(){
 
-
-	}
 
 	@FXML
     private void initialize() {
@@ -67,6 +66,15 @@ public class PasswordViewController {
 			RevealButton.setText("Reveal");
 		}
 	}
+
+	public void handleCopyButton(){
+		String myString = passwordTextField.getText();
+		StringSelection stringSelection = new StringSelection(myString);
+		Clipboard clpbrd = Toolkit.getDefaultToolkit().getSystemClipboard();
+		clpbrd.setContents(stringSelection, null);
+
+	}
+
 	@FXML
 	public void openWebside(){
 		Runtime rt = Runtime.getRuntime();

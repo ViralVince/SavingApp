@@ -23,7 +23,7 @@ public class MainApp extends Application {
         this.primaryStage.setTitle("SavingApp");
 
         PasswordViewController pvc = new PasswordViewController();
-        pvc.setupPasswordViewScene();
+
         initRootLayout();
 
         showPasswordOverview();
