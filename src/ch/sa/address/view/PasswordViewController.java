@@ -1,10 +1,12 @@
 package ch.sa.address.view;
 
 
+import java.awt.Desktop;
 import java.awt.Toolkit;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
 import java.io.IOException;
+import java.net.URI;
 
 import ch.sa.address.MainApp;
 import javafx.fxml.FXML;
@@ -77,14 +79,13 @@ public class PasswordViewController {
 
 	@FXML
 	public void openWebside(){
-		Runtime rt = Runtime.getRuntime();
-        String url = websideLink.getText();
-        try {
-			rt.exec("rundll32 url.dll,FileProtocolHandler " + url);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		try {
+			  Desktop desktop = java.awt.Desktop.getDesktop();
+			  URI oURL = new URI("http://www."+websideLink.getText());
+			  desktop.browse(oURL);
+			} catch (Exception e) {
+			  e.printStackTrace();
+			}
 		}
 	}
 
