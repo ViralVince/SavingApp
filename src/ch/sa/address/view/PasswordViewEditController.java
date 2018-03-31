@@ -34,6 +34,12 @@ public class PasswordViewEditController {
 
 		}
 
+		LoginList logl = new LoginList();
+		logl.addLogin(login);
+
+
 	}
+
+
 
 }
