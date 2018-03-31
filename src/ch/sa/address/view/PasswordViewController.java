@@ -52,9 +52,8 @@ public class PasswordViewController {
 	public PasswordViewController() {
     }
 
-
-	@FXML
-    private void initialize() {
+    @FXML
+	private void initialize() {
 		passwordTextField.setText("********");
 		websideLink.setText("youtube.com");
     }
@@ -77,7 +76,19 @@ public class PasswordViewController {
 
 	}
 
-	@FXML
+	public void handleDeleteButton(){
+
+	}
+
+	public void handleNew(){
+
+
+
+	}
+	
+	
+
+
 	public void openWebside(){
 		try {
 			  Desktop desktop = java.awt.Desktop.getDesktop();

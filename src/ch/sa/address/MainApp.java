@@ -29,6 +29,8 @@ public class MainApp extends Application {
         showPasswordOverview();
     }
 
+
+
     /**
      * Initializes the root layout.
      */
@@ -55,7 +57,7 @@ public class MainApp extends Application {
         try {
             // Load person overview.
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(MainApp.class.getResource("view/PasswordView.fxml"));
+            loader.setLocation(MainApp.class.getResource("view/PasswordViewEdit.fxml"));
             AnchorPane passwordOverview = (AnchorPane) loader.load();
 
             // Set person overview into the center of root layout.
