@@ -2,6 +2,8 @@ package ch.sa.address;
 
 import java.io.IOException;
 
+import ch.sa.address.view.Login;
+import ch.sa.address.view.LoginList;
 import ch.sa.address.view.PasswordViewController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -68,11 +70,6 @@ public class MainApp extends Application {
     }
 
 
-
-
-
-
-
     /**
      * Returns the main stage.
      * @return
@@ -84,5 +81,12 @@ public class MainApp extends Application {
     public static void main(String[] args) {
 
         launch(args);
+        LoginList lg = new LoginList();
+    	Login l = new Login();
+    	l.setName("testname");
+    	l.setPassword("testpw");
+    	l.setUsername("testus");
+    	l.setWebside("testweb");
+    	lg.createXML(l);
     }
 }

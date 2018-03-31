@@ -16,17 +16,22 @@ public class LoginList {
 	}
 
 	public void createXML(Login l){
-		try{
-		File file = new File("/data.xml");
-		JAXBContext jaxbContext = JAXBContext.newInstance(Login.class);
-		Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
+		
 
-		// output pretty printed
-		jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+		  try {
+			  String currentDir = System.getProperty("user.dir");
+		      System.out.println("Current dir using System:" +currentDir);
+			File file = new File(currentDir+"/filetest.xml");
+			JAXBContext jaxbContext = JAXBContext.newInstance(Login.class);
+			Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
 
-		jaxbMarshaller.marshal(l, file);
-		jaxbMarshaller.marshal(l, System.out);
-		} catch (JAXBException e) {
+			// output pretty printed
+			jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+
+			jaxbMarshaller.marshal(l, file);
+			jaxbMarshaller.marshal(l, System.out);
+
+		      } catch (JAXBException e) {
 			e.printStackTrace();
 		      }
 	}
