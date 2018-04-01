@@ -1,8 +1,12 @@
 package ch.sa.address;
 
+import java.io.File;
 import java.io.IOException;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
+import javax.xml.bind.Unmarshaller;
 
-import ch.sa.address.view.Login;
 import ch.sa.address.view.LoginList;
 import ch.sa.address.view.PasswordViewController;
 import javafx.application.Application;
@@ -18,6 +22,8 @@ public class MainApp extends Application {
 
     private Stage primaryStage;
     private BorderPane rootLayout;
+
+    LoginList myAdressbook = new Login
 
     @Override
     public void start(Stage primaryStage) {
@@ -78,15 +84,52 @@ public class MainApp extends Application {
         return primaryStage;
     }
 
-    public static void main(String[] args) {
+    public void loadXML(){
+    	 try {
 
+    		 	String currentDir = System.getProperty("user.dir");
+    		 	//System.out.println("Current dir using System:" +currentDir);
+    		 	File file = new File(currentDir+"/filetest.xml");
+    			JAXBContext jaxbContext = JAXBContext.newInstance(LoginList.class);
+
+    			Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+    			LoginList logl = (LoginList) jaxbUnmarshaller.unmarshal(file);
+    			System.out.println(logl);
+
+    		  } catch (JAXBException e) {
+    			e.printStackTrace();
+    		  }
+
+    }
+
+    public static void saveXML(){
+    	LoginList logl = new LoginList();
+		  try {
+			  String currentDir = System.getProperty("user.dir");
+		      //System.out.println("Current dir using System:" +currentDir);
+			  File file = new File(currentDir+"/filetest.xml");
+			  JAXBContext jaxbContext = JAXBContext.newInstance(LoginList.class);
+			  Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
+
+			  // output pretty printed
+			  jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+
+			  jaxbMarshaller.marshal(logl, file);
+			  jaxbMarshaller.marshal(logl, System.out);
+
+		      } catch (JAXBException e) {
+		    	  e.printStackTrace();
+		      }
+	}
+
+    public void readFileToUI(){
+
+
+
+    }
+
+    public static void main(String[] args) {
         launch(args);
-        LoginList lg = new LoginList();
-    	Login l = new Login();
-    	l.setName("testname");
-    	l.setPassword("testpw");
-    	l.setUsername("testus");
-    	l.setWebside("testweb");
-    	lg.createXML(l);
+    	saveXML();
     }
 }

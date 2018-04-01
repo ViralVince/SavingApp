@@ -3,7 +3,7 @@ package ch.sa.address.view;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
-@XmlRootElement
+
 public class Login {
 	//Definiert Login und dessen funktionen
 
